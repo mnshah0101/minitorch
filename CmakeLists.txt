@@ -1,0 +1,62 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(minitorch
+    VERSION 0.1.0
+    LANGUAGES CXX
+    DESCRIPTION "A minimal tensor library implementation"
+)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Compiler flags
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+elseif(MSVC)
+    add_compile_options(/W4)
+endif()
+
+# Include directories
+include_directories(${PROJECT_SOURCE_DIR}/include/mini)
+
+# Collect source files
+file(GLOB_RECURSE SOURCES
+    ${PROJECT_SOURCE_DIR}/src/*.cpp
+)
+
+# Create library from source files
+add_library(minitorch_lib ${SOURCES})
+
+target_include_directories(minitorch_lib PUBLIC
+    ${PROJECT_SOURCE_DIR}/include/mini
+)
+
+# Main executable
+add_executable(minitorch ${PROJECT_SOURCE_DIR}/main.cpp)
+
+target_link_libraries(minitorch PRIVATE minitorch_lib)
+
+# Optional: Enable testing
+if(EXISTS ${PROJECT_SOURCE_DIR}/tests/CMakeLists.txt)
+    enable_testing()
+    add_subdirectory(tests EXCLUDE_FROM_ALL)
+endif()
+
+# Optional: Add benchmarks
+if(EXISTS ${PROJECT_SOURCE_DIR}/bench/CMakeLists.txt)
+    add_subdirectory(bench EXCLUDE_FROM_ALL)
+endif()
+
+# Installation rules (optional)
+install(TARGETS minitorch minitorch_lib
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/mini
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h"
+)

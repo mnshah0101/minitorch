@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libminitorch_lib.a CMakeFiles/minitorch_lib.dir/src/autograd.cpp.o CMakeFiles/minitorch_lib.dir/src/tensor.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libminitorch_lib.a

@@ -1,0 +1,8 @@
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/minitorch_lib.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/minitorch.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/edit_cache.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/rebuild_cache.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/list_install_components.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/install.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/install/local.dir
+/Users/moksh/Desktop/minitorch/build/CMakeFiles/install/strip.dir
