@@ -9,6 +9,7 @@
 
 int main(){
     Tensor t{{1,2,3,4}};
-    std::cout << t.dtype;
+    t.permute({2,1,0,3});
+    std::cout << t;
     return 0;
 }

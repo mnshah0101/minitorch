@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <tuple>
 
 enum DType
 {
@@ -17,12 +18,21 @@ enum DType
     int16
 };
 
+struct Slice
+{
+    long start;
+    long end;
+    long step;
+};
+struct All
+{
+}; 
 
-
-using Shape = std::vector<int>;
-using Stride = std::vector<int>;
+using Shape = std::vector<long>;
+using Stride = std::vector<long>;
 using Offset = u_int64_t;
-using Device = std::pair<std::string,int>;
+using Slices = std::vector<Slice>;
+using Device = std::pair<std::string, long>;
 
 // Operator overloads for output streaming
 inline std::ostream& operator<<(std::ostream& os, const DType& dtype) {
